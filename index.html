@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogazione Monete</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="instructions" class="hidden">
+        <h1>Benvenuto/a su Monet!</h1>
+        <p>Questa applicazione ti permette di catalogare le tue monete e tener traccia delle informazioni più importanti su di esse.</p>
+        <p>Prima di iniziare, è necessario fornire l'accesso ai file locali, in modo che l'applicazione possa caricare il database con tutte le monete.</p>
+        <p>Per concedere l'accesso, fai clic sul pulsante di seguito.</p>
+        <button id="startButton">Avvia l'applicazione</button>
+    </div>
+
+    <div id="categories" class="hidden">
+        <div class="column">
+            <button id="regnoItalia" class="category-button">
+                <img src="images/regno_italia.jpg" alt="Regno d'Italia">
+                <span>Regno d'Italia</span>
+            </button>
+            <button id="repubblicaItaliana" class="category-button">
+                <img src="images/repubblica_italiana.jpg" alt="Repubblica Italiana">
+                <span>Repubblica Italiana</span>
+            </button>
+        </div>
+        <div class="column">
+            <button id="moneteArgento" class="category-button">
+                <img src="images/monete_argento.jpg" alt="Monete d'Argento">
+                <span>Monete d'Argento</span>
+            </button>
+            <button id="moneteOro" class="category-button">
+                <img src="images/monete_oro.jpg" alt="Monete d'Oro">
+                <span>Monete d'Oro</span>
+            </button>
+        </div>
+    </div>
+
+    <div id="subCategoryList" class="hidden">
+        <!-- Qui verranno inserite le sotto-categorie -->
+    </div>
+  
+     <button id="downloadButton">Scarica Catalogo</button>
+</div>
+
+    <div id="coinList" class="hidden">
+        <!-- Qui verranno inserite le monete della categoria selezionata -->
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+       // Funzione per avviare l'applicazione dopo aver letto le istruzioni
+document.getElementById('startButton').addEventListener('click', function() {
+    document.getElementById('instructions').classList.add('hidden');
+    document.getElementById('categories').classList.remove('hidden');
+    // Chiamare la funzione per caricare e analizzare il file CSV al caricamento dell'app
+    loadCSVFile();
+    // Mostrare la finestra di dialogo di benvenuto
+    document.getElementById('instructions').classList.remove('hidden');
+});
+
+    </script>
+</body>
+</html>
